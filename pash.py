@@ -2,7 +2,6 @@ import sys, socket, json, time
 import requests, subprocess, psutil
 from bs4 import BeautifulSoup
 
-print("test commit")
 
 # -- made by YourWonders, aka "Yama"
 
