@@ -3,7 +3,7 @@ import psutil, cpuinfo, re, logging, platform, socket
 import subprocess, json
 
 # Code made by yama, aka YourWonders
-print("what")
+
 
 lg = logging.basicConfig(level=logging.INFO,
                          format="""
