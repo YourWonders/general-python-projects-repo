@@ -2,9 +2,8 @@ from tkinter import *
 import psutil, cpuinfo, re, logging, platform, socket
 import subprocess, json
 
-
-print('hello')
-
+# Code made by yama, aka YourWonders
+print("what")
 
 lg = logging.basicConfig(level=logging.INFO,
                          format="""
