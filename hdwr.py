@@ -3,6 +3,9 @@ import psutil, cpuinfo, re, logging, platform, socket
 import subprocess, json
 
 
+print('hello')
+
+
 lg = logging.basicConfig(level=logging.INFO,
                          format="""
 LEVEL => %(levelname)s
