@@ -27,7 +27,13 @@ except IndexError:
 
 # ------------------------------------------------
 
-key_words = ['cookie','cookies','Cookie','Cookies','browser','ip','isp']
+key_words = ['cookie','cookies','Cookie',
+             'Cookies','browser','ip',
+             'isp','account','Account',
+             'accounts','Accounts']
+
+cookie_words = [key_words[0], key_words[1],
+                key_words[2], key_words[3]]
 
 # ------------------------------------------------
 def readFunction():
