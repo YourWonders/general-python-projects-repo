@@ -1,4 +1,4 @@
-import sys, logging
+import sys, logging, os
 
 
 lg = logging.basicConfig(level=logging.INFO,
@@ -18,7 +18,8 @@ try:
     s1 = sys.argv[1]
     cmd = {'read_file':'-rd',
         'write_file':'-wr',
-        'csv_read':'-csv--read'}
+        'csv_read':'-csv--read',
+        'libreCalc_open':'-csv--open'}
     
 except IndexError:
 
@@ -83,19 +84,40 @@ def csvReadFunction():
 
     print('[WARNING] you must have make a CSV file or atleast make one\n')
 
-    csv_read = sys.argv[2]
+    try:
+        csv_read = sys.argv[2]
 
-    with open(csv_read, 'r') as csvFileR:
+        with open(csv_read, 'r') as csvFileR:
 
-        data = csvFileR.readlines()
+            data = csvFileR.readlines()
 
-        for i in data:
+            for i in data:
 
-            print(i)
+                print(i)
 
-        csvFileR.close()
+            csvFileR.close()
+
+    except IndexError:
+
+        print("Unable to find file path")
 
 # ----- csv read function ends here -----------
+
+
+def csvOpenFunction():
+
+    try:
+
+        path_open = sys.argv[2]
+        os.system('libreoffice --calc '+ path_open)
+
+    except (UnboundLocalError, IndexError):
+
+        print("Please enter a path to csv file")
+
+
+# ----- csv open function ends here -----------
+
 
 if s1 == cmd['read_file']:
 
@@ -109,6 +131,10 @@ elif s1 == cmd['write_file']:
 elif s1 == cmd['csv_read']:
 
     csvReadFunction()
+
+elif s1 == cmd['libreCalc_open']:
+
+    csvOpenFunction()
 
 
 elif s1 == 'help':
