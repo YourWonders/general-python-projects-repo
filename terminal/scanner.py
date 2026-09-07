@@ -19,7 +19,7 @@ cmd = {'read_file':'-rd'}
 
 # ------------------------------------------------
 
-key_words = ['cookies','ip']
+key_words = ['cookie','cookies','Cookie','Cookies','browser','ip','isp']
 
 # ------------------------------------------------
 def function():
@@ -38,11 +38,10 @@ def function():
 
                     if i in j:
 
-                        logging.log(LOW_WARNING, f'key word "{i}" has been found')
+                        logging.log(LOW_WARNING, f'keyword "{i}" has been found')
 
                     else:
                         continue
-            
 
         searchFunction(key_words,data)
 
@@ -54,3 +53,10 @@ if s1 == cmd['read_file']:
 
     function()
 
+elif s1 == 'help':
+
+    print("Current commands")
+
+    for key, itm in cmd.items():
+
+        print(key,itm,sep=' -> ')
