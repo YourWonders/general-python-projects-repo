@@ -15,14 +15,15 @@ logging.addLevelName(LOW_WARNING, 'LOW WARNING')
 
 
 s1 = sys.argv[1]
-cmd = {'read_file':'-rd'}
+cmd = {'read_file':'-rd',
+       'write_file':'-wr'}
 
 # ------------------------------------------------
 
 key_words = ['cookie','cookies','Cookie','Cookies','browser','ip','isp']
 
 # ------------------------------------------------
-def function():
+def readFunction():
 
     path_arg = sys.argv[2]
 
@@ -48,10 +49,38 @@ def function():
 
         flr.close()
 
+# ----- read function ends here -----------
+
+
+def writeFunction():
+
+    path_write = sys.argv[2]
+
+    with open(path_write, '+a') as wrfl:
+
+        while 1:
+
+            user_input = input('[WRITE] ')
+            wrfl.writelines(user_input + '\n')
+
+            if user_input == '#':
+                wrfl.close()
+                break
+
+
+
+
+# ----- write function ends here -----------
+
 
 if s1 == cmd['read_file']:
 
-    function()
+    readFunction()
+
+elif s1 == cmd['write_file']:
+
+    writeFunction()
+
 
 elif s1 == 'help':
 
@@ -60,3 +89,7 @@ elif s1 == 'help':
     for key, itm in cmd.items():
 
         print(key,itm,sep=' -> ')
+
+else:
+
+    print(f'command {s1} does not exist')
