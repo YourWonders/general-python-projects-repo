@@ -54,4 +54,3 @@ if s1 == cmd['read_file']:
 
     function()
 
-# gonna fix up some ideas later...
