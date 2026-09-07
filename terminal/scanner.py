@@ -13,10 +13,16 @@ LOW_WARNING = 25
 logging.addLevelName(LOW_WARNING, 'LOW WARNING')
 
 
+try:
 
-s1 = sys.argv[1]
-cmd = {'read_file':'-rd',
-       'write_file':'-wr'}
+    s1 = sys.argv[1]
+    cmd = {'read_file':'-rd',
+        'write_file':'-wr',
+        'csv_read':'-csv--read'}
+    
+except IndexError:
+
+    print("Missing commands")
 
 # ------------------------------------------------
 
@@ -73,6 +79,24 @@ def writeFunction():
 # ----- write function ends here -----------
 
 
+def csvReadFunction():
+
+    print('[WARNING] you must have make a CSV file or atleast make one\n')
+
+    csv_read = sys.argv[2]
+
+    with open(csv_read, 'r') as csvFileR:
+
+        data = csvFileR.readlines()
+
+        for i in data:
+
+            print(i)
+
+        csvFileR.close()
+
+# ----- csv read function ends here -----------
+
 if s1 == cmd['read_file']:
 
     readFunction()
@@ -80,6 +104,11 @@ if s1 == cmd['read_file']:
 elif s1 == cmd['write_file']:
 
     writeFunction()
+
+
+elif s1 == cmd['csv_read']:
+
+    csvReadFunction()
 
 
 elif s1 == 'help':
